@@ -4,6 +4,7 @@
   import logo2 from '$lib/images/logo2@2x.png';
   import logo3 from '$lib/images/logo3@2x.png';
   import productImage from '$lib/images/prod-image@2x.png';
+  import { readableColor } from 'polished';
   let feedback = '';
 
   // Define the three palettes, each with a logo and title
@@ -63,6 +64,9 @@
   $: if (typeof document !== 'undefined') {
     applyPalette(palettes[selectedPaletteIdx]);
   }
+
+  // Compute accessible text color for the Next button
+  $: nextButtonTextColor = readableColor(palettes[selectedPaletteIdx].primary);
 </script>
 
 <svelte:head>
@@ -125,7 +129,7 @@
       <button class="text-base hover:underline flex items-center gap-1 font-sans" style="color: var(--color-text);">
         ← Previous
       </button>
-      <button class="px-8 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-1 shadow-sm font-sans text-base font-semibold" style="background: var(--color-primary); color: var(--color-fg-bg);">
+      <button class="px-8 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-1 shadow-sm font-sans text-base font-semibold" style="background: var(--color-primary); color: {nextButtonTextColor};">
         Next →
       </button>
     </div>
