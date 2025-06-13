@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import logo1 from '$lib/images/logo1@2x.png';
   import logo2 from '$lib/images/logo2@2x.png';
-  import logo3 from '$lib/images/logo3@2x.png';
+  import logo3 from '$lib/images/strideUXLogo@2x.png';
   import productImage from '$lib/images/prod-image@2x.png';
   import { readableColor } from 'polished';
   let feedback = '';
@@ -77,12 +77,12 @@
 <div id="palette-root" class="min-h-screen flex flex-col w-full" style="background: var(--color-bg);">
   <!-- Sticky wrapper for header and progress bar -->
   <div class="sticky-header-bar" style="position: sticky; top: 0; z-index: 10; background: var(--color-fg-bg);">
-    <header class="w-full flex items-center justify-between px-8 py-3 shadow-sm" style="background: var(--color-fg-bg);">
+    <header class="w-full flex items-center justify-between px-6 py-3 shadow-sm" style="background: var(--color-fg-bg);">
       <div class="flex items-center gap-2 md:gap-3"> 
         <img src={palettes[selectedPaletteIdx].logo} alt="Logo" style="height: 40px; width: auto;" />
         <h1 class="text-base font-medium leading-6 ml-2" style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; color: var(--color-text);">{palettes[selectedPaletteIdx].title}</h1>
       </div>
-      <span class="text-base leading-6" style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; color: var(--color-text);">2 of 3</span>
+      <span class="text-base leading-6" style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 14px; line-height: 24px; color: var(--color-text);">2 of 3</span>
     </header>
     <!-- Progress Bar below header, full width -->
     <div class="w-full h-1" style="background-color: rgba(23, 137, 200, 0.3);">
@@ -128,7 +128,7 @@
 
   <!-- Footer navigation -->
   <div class="footer-bar" style="background: var(--color-fg-bg);">
-    <div class="flex justify-between items-center w-full px-8">
+    <div class="flex justify-between items-center w-full px-6">
       <button class="text-base hover:underline flex items-center gap-1 font-sans" style="color: var(--color-text);">
         ← Previous
       </button>
@@ -142,5 +142,8 @@
 <style>
   .next-btn:hover {
     background: var(--color-secondary) !important;
+  }
+  button, .footer-bar button, .footer-bar a, select {
+    cursor: pointer;
   }
 </style>
