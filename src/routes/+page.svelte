@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import logo1 from '$lib/images/logo1@2x.png';
   import logo2 from '$lib/images/logo2@2x.png';
-  import logo3 from '$lib/images/strideUXLogo@2x.png';
+  import logo3 from '$lib/images/strideUXLogo-mark@2x.png';
   import productImage from '$lib/images/prod-image@2x.png';
   import { readableColor } from 'polished';
   let feedback = '';
@@ -27,7 +27,7 @@
       fgBg: '#FFFFFF',
       text: '#512889',
       logo: logo2,
-      title: 'Lorem ipsum dolor sit amet',
+      title: 'Lorem ipsum dolor',
     },
     {
       name: 'Example 3',
@@ -37,7 +37,7 @@
       fgBg: '#2D2F35',
       text: '#FFFFFF',
       logo: logo3,
-      title: 'Lorem ipsum dolor sit amet',
+      title: 'Lorem ipsum dolor',
     },
   ];
 
@@ -117,7 +117,7 @@
   </div>
 
   <!-- Palette Switcher Dropdown as a floating card below the main card -->
-  <div class="mx-auto mt-8 mb-8 shadow rounded-lg p-4 w-full max-w-xs text-center" style="background: var(--color-fg-bg);">
+  <div class="mx-auto mt-8 mb-20 shadow rounded-lg p-4 w-full max-w-xs text-center" style="background: var(--color-fg-bg);">
     <label for="palette-select" class="mr-2 font-sans text-base" style="color: var(--color-text);">Theme:</label>
     <select id="palette-select" bind:value={selectedPaletteIdx} class="border rounded px-2 py-1 font-sans" style="color: var(--color-text); background: var(--color-fg-bg);">
       {#each palettes as palette, idx}
@@ -128,7 +128,7 @@
 
   <!-- Footer navigation -->
   <div class="footer-bar" style="background: var(--color-fg-bg);">
-    <div class="flex justify-between items-center w-full px-6">
+    <div class="flex justify-between items-center w-full px-4">
       <button class="text-base hover:underline flex items-center gap-1 font-sans" style="color: var(--color-text);">
         ← Previous
       </button>
