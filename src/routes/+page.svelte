@@ -75,43 +75,46 @@
 
 <!-- Page background -->
 <div id="palette-root" class="min-h-screen flex flex-col w-full" style="background: var(--color-bg);">
-  <!-- Header -->
-  <header class="w-full flex items-center justify-between px-8 py-3 shadow-sm" style="background: var(--color-fg-bg);">
-    <div class="flex items-center gap-2 md:gap-3"> 
-      <img src={palettes[selectedPaletteIdx].logo} alt="Logo" style="height: 40px; width: auto;" />
-      <h1 class="text-base font-medium leading-6 ml-2" style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; color: var(--color-text);">{palettes[selectedPaletteIdx].title}</h1>
+  <!-- Sticky wrapper for header and progress bar -->
+  <div class="sticky-header-bar" style="position: sticky; top: 0; z-index: 10; background: var(--color-fg-bg);">
+    <header class="w-full flex items-center justify-between px-8 py-3 shadow-sm" style="background: var(--color-fg-bg);">
+      <div class="flex items-center gap-2 md:gap-3"> 
+        <img src={palettes[selectedPaletteIdx].logo} alt="Logo" style="height: 40px; width: auto;" />
+        <h1 class="text-base font-medium leading-6 ml-2" style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; color: var(--color-text);">{palettes[selectedPaletteIdx].title}</h1>
+      </div>
+      <span class="text-base leading-6" style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; color: var(--color-text);">2 of 3</span>
+    </header>
+    <!-- Progress Bar below header, full width -->
+    <div class="w-full h-1" style="background-color: rgba(23, 137, 200, 0.3);">
+      <div class="h-full" style="width:66.666vw; max-width:100vw; background-color: var(--color-primary);"></div>
     </div>
-    <span class="text-base leading-6" style="font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; color: var(--color-text);">2 of 3</span>
-  </header>
-
-  <!-- Progress Bar -->
-  <div class="w-full h-1" style="background-color: rgba(23, 137, 200, 0.3); margin-top:0;">
-    <div class="h-full" style="width:66.666vw; max-width:100vw; background-color: var(--color-primary);"></div>
   </div>
 
-  <!-- Main content card -->
-  <main class="shadow-lg rounded-xl p-8 md:p-12 mt-12 mx-auto w-full max-w-md text-center" style="background: var(--color-fg-bg);">
-    <h2 class="mb-6" style="font-family: 'Roboto', sans-serif; font-weight: 600; font-size: 24px; line-height: 32px; color: var(--color-text);">
-      We'd love your feedback
-    </h2>
+  <!-- Main content card with outer container for horizontal padding -->
+  <div style="padding-left: 16px; padding-right: 16px; margin-top: 16px;">
+    <main class="shadow-lg rounded-xl p-4 sm:p-8 md:p-12 text-center" style="background: var(--color-fg-bg); box-sizing: border-box; max-width: 600px; margin: 0 auto;">
+      <h2 class="mb-6" style="font-family: 'Roboto', sans-serif; font-weight: 600; font-size: 24px; line-height: 32px; color: var(--color-text);">
+        We'd love your feedback
+      </h2>
 
-    <img
-      src={productImage}
-      alt="Product"
-      class="mx-auto mb-6 rounded-md w-48 h-60 object-cover"
-    />
+      <img
+        src={productImage}
+        alt="Product"
+        class="mx-auto mb-6 rounded-md w-48 h-60 object-cover"
+      />
 
-    <label for="feedback" class="block font-semibold mb-2 text-base md:text-lg font-sans" style="color: var(--color-text);">
-      Anything you want to share with us?
-    </label>
-    <textarea
-      id="feedback"
-      bind:value={feedback}
-      placeholder="I really liked..."
-      class="w-full border border-gray-300 rounded-md px-4 py-3 text-base focus:outline-none focus:ring-2 min-h-[80px] md:min-h-[100px] font-sans"
-      style="color: var(--color-text);"
-    ></textarea>
-  </main>
+      <label for="feedback" class="block font-semibold mb-2 text-base md:text-lg font-sans" style="color: var(--color-text);">
+        Anything you want to share with us?
+      </label>
+      <textarea
+        id="feedback"
+        bind:value={feedback}
+        placeholder="I really liked..."
+        class="w-full border border-gray-300 rounded-md px-4 py-3 text-base focus:outline-none focus:ring-2 min-h-[80px] md:min-h-[100px] font-sans"
+        style="color: var(--color-text);"
+      ></textarea>
+    </main>
+  </div>
 
   <!-- Palette Switcher Dropdown as a floating card below the main card -->
   <div class="mx-auto mt-8 mb-8 shadow rounded-lg p-4 w-full max-w-xs text-center" style="background: var(--color-fg-bg);">
@@ -129,9 +132,15 @@
       <button class="text-base hover:underline flex items-center gap-1 font-sans" style="color: var(--color-text);">
         ← Previous
       </button>
-      <button class="px-8 py-2 rounded-md hover:bg-blue-700 transition flex items-center gap-1 shadow-sm font-sans text-base font-semibold" style="background: var(--color-primary); color: {nextButtonTextColor};">
+      <button class="px-8 py-2 rounded-md transition flex items-center gap-1 shadow-sm font-sans text-base font-semibold next-btn" style="background: var(--color-primary); color: {nextButtonTextColor};">
         Next →
       </button>
     </div>
   </div>
 </div>
+
+<style>
+  .next-btn:hover {
+    background: var(--color-secondary) !important;
+  }
+</style>
