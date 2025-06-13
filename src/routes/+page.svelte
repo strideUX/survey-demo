@@ -115,7 +115,7 @@
 
   <!-- Palette Switcher Dropdown as a floating card below the main card -->
   <div class="mx-auto mt-8 mb-8 shadow rounded-lg p-4 w-full max-w-xs text-center" style="background: var(--color-fg-bg);">
-    <label for="palette-select" class="mr-2 font-sans text-base" style="color: var(--color-text);">Color Palette:</label>
+    <label for="palette-select" class="mr-2 font-sans text-base" style="color: var(--color-text);">Theme:</label>
     <select id="palette-select" bind:value={selectedPaletteIdx} class="border rounded px-2 py-1 font-sans" style="color: var(--color-text); background: var(--color-fg-bg);">
       {#each palettes as palette, idx}
         <option value={idx}>{palette.name}</option>
